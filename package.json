@@ -1,0 +1,26 @@
+{
+    "name": "zig-snippets",
+    "displayName": "Zig Snippets",
+    "description": "A comprehensive set of snippets for the Zig programming language",
+    "version": "1.0.0",
+    "publisher": "lorenzopirro",
+    "icon": "ziglogo.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/LorenzoPirro/zig-snippets.git"
+    },
+    "engines": {
+        "vscode": "^1.41.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "zig",
+                "path": "./snippets/snippets.json"
+            }
+        ]
+    }
+}
