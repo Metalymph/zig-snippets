@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Zig Snippets
 
 This extension provides a comprehensive set of snippets for the [Zig programming language](https://ziglang.org).
@@ -95,7 +94,3 @@ Std library utils:
 
 
 ***Enjoy coding faster!*** :fire:
-=======
-# zig-snippets
-Vscode snippets extension for the Zig programming language
->>>>>>> c7b89239efb2ad1e243e1e07156d1a929a5bcc7b
