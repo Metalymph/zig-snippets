@@ -411,9 +411,9 @@
     "@import(std)": {
         "prefix": "imp_std",
         "body": [
-            "@import(\"std\").${1|debug,heap,io,math,mem,os,testing|};$0"
+            "@import(\"std\").${1|ascii,atomic,base64,build,builtin,c,coff,crypto,cstr,debug,dwarf,elf,event,fifo,fmt,fs,hash,hash_map,heap,http,io,json,macho,math,mem,meta,net,os,packed_int_array,pdb,process,rand,rb,sort,start,testing,time,unicode,valgrind,zigg|};$0"
         ],
-        "description": "import std component"
+        "description": "import std namespace"
     },
     "@typeOf": {
         "prefix": "typeOf",
@@ -460,7 +460,7 @@
     "@compileLog": {
         "prefix": [
             "compileLog",
-            "logg"
+            "log"
         ],
         "body": [
             "@compileError(\"${1:message}\");$0"

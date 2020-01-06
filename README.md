@@ -63,7 +63,7 @@ Zig default functions:
 | ```free```              | allocator free                               |
 | ```frame```             | switching frame                              |
 | ```imp```               | import dependency                            |
-| ```imp_std```           | import standard component                    |
+| ```imp_std```           | import standard namespace                    |
 | ```typeOf```            | type of value                                |
 | ```typeName```          | type name of value                           |
 | ```panic```             | import dependency                            |
