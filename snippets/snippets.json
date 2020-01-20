@@ -8,8 +8,8 @@
             "const std = @import(\"std\");",
             "",
             "pub fn main() !void {",
-            "    const stdout = try std.io.getStdOut().outStream().stream;",
-            "    try stdout.write(\"Hello world!\\n\");$0",
+            "    const stdout = &std.io.getStdOut().outStream().stream;",
+            "    try stdout.write(\"Hello {}!\\n\", .{\"world\"});$0",
             "}"
         ],
         "description": "main/hello world"
