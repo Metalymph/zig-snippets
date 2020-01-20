@@ -8,7 +8,7 @@
             "const std = @import(\"std\");",
             "",
             "pub fn main() !void {",
-            "    const stdout = try std.io.getStdOut();",
+            "    const stdout = try std.io.getStdOut().outStream().stream;",
             "    try stdout.write(\"Hello world!\\n\");$0",
             "}"
         ],
@@ -29,6 +29,21 @@
         ],
         "description": "const decl"
     },
+    "arr_init": {
+        "prefix": "arr_init",
+        "body": [
+            "[_:${1:sentinel}]${1:type}{${2:val1}, ${3:val2}, ${4:val3}};$0"
+        ],
+        "description": "array/sentinel init"
+    },
+    "list": {
+        "prefix": "list",
+        "body": [
+            ".{${1:val1}, ${2:val2}, ${3:val3}};$0"
+        ],
+        "description": "anonymous list"
+    },
+
 
     "fn": {
         "prefix": "fn",
@@ -394,6 +409,20 @@
         "description": "allocator free"
     },
 
+    "@alignOf": {
+        "prefix": "alignOf",
+        "body": [
+            "@alignOf(${1:type})$0"
+        ],
+        "description": "align on specific type"
+    },
+    "@as": {
+        "prefix": "as",
+        "body": [
+            "@as(${1:cast_type}, ${2:value})$0"
+        ],
+        "description": "cast value"
+    },
     "@frame": {
         "prefix": "frame",
         "body": [
@@ -481,6 +510,13 @@
         ],
         "description": "x to y cast function"
     },
+    "@bitCast": {
+        "prefix": "bitCast",
+        "body": [
+            "@byteOffsetOf(${1:packed_type}, ${2:value})$0"
+        ],
+        "description": "value to bit cast"
+    },
     "@bitOffsetOf": {
         "prefix": "bitOff",
         "body": [
@@ -494,6 +530,13 @@
             "@byteOffsetOf(${1:packed_type}, ${2:value})$0"
         ],
         "description": "byte offset"
+    },
+    "@bytesToSlice": {
+        "prefix": "bytesToSlice",
+        "body": [
+            "@bytesToSlice(${1:packed_type}, ${2:slice})$0"
+        ],
+        "description": "bytes to slice"
     },
     "@memberCount": {
         "prefix": "memberC",
@@ -560,11 +603,11 @@
         "description": "std.mem.eql"
     },
     "std.in/out": {
-        "prefix": ["stdout","stdin"],
+        "prefix": ["stdout","stderr"],
         "body": [
-            "std.io.${1|getStdOut,getStdIn|}()$0"
+            "std.io.${1|getStdOut().outStream().stream,getStdErr()|}$0"
         ],
-        "description": "std.io stdout/stdin"
+        "description": "std.io stdout/stderr"
     },
     "std.debug.assert": {
         "prefix": "assert",

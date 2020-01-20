@@ -11,7 +11,8 @@ Main language:
 | ```main/hello```   | Match construct                     |
 | ```var```          | variable declaration and definition |
 | ```const```        | Constant decl                       |
-| ```arr_init```     | Initialized array                   |
+| ```arr_init```     | array/sentinel init                 |
+| ```list```         | anonymous list                      |
 | ```fn```           | fn decl                             |
 | ```fn_T```         | generic fn decl                     |
 | ```pub_fn```       | pub fn decl                         |
@@ -60,6 +61,8 @@ Zig default functions:
 
 | prefix                  | description                                  |
 |:------------------------|:---------------------------------------------|
+| ```alignOf```           | align on specific type                       |
+| ```as```                | cast value                                   |
 | ```free```              | allocator free                               |
 | ```frame```             | switching frame                              |
 | ```imp```               | import dependency                            |
@@ -72,8 +75,10 @@ Zig default functions:
 | ```compileErr```        | compile error                                |
 | ```compileLog```        | compile log                                  |
 | ```cast```              | x to y cast function                         |
+| ```bitCast```           | value to bit cast                            |
 | ```bitOff```            | bit offset                                   |
 | ```byteOff```           | byte offset                                  |
+| ```byteToSlice```       | bytes to slice                               |
 | ```memberC```           | enum member count                            |
 | ```tagName```           | enum tag name                                |
 | ```tagType```           | enum tag's count type                        |
@@ -87,7 +92,7 @@ Std library utils:
 |:-----------------------|:------------------------|
 | ```warn```             | std.debug.warn          |
 | ```mem.eql```          | std.mem.eql             |
-| ```stdout/stdin```     | std.io stdout/stdin     |
+| ```stdout/stderr```    | std.io stdout/stderr    |
 | ```assert```           | std.debug.assert        |
 | ```expect```           | std.testing.expect      |
 | ```arena/alloc/heap``` | std.heap.ArenaAllocator |
