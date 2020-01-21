@@ -9,7 +9,7 @@
             "",
             "pub fn main() !void {",
             "    const stdout = &std.io.getStdOut().outStream().stream;",
-            "    try stdout.write(\"Hello {}!\\n\", .{\"world\"});$0",
+            "    try stdout.print(\"Hello {}!\\n\", .{\"world\"});$0",
             "}"
         ],
         "description": "main/hello world"
@@ -109,9 +109,9 @@
     "block": {
         "prefix": "block",
         "body": [
-            "${1:init}: {",
+            "${1:label}: {",
             "    const ${2:name} = ${3:value}",
-            "    break :${1:init} ${:return_value}$0",
+            "    break :${1:label} ${:return_value}$0",
             "};"
         ],
         "description": "block expr"
@@ -591,7 +591,7 @@
     "std.debug.warn": {
         "prefix": "warn",
         "body": [
-            "${1:std.debug.}warn(\"${2:message} {}\\n\", ${3:err});$0"
+            "${1:std.debug.}warn(\"${2:message} {}\\n\", .{${3:err}});$0"
         ],
         "description": "std.debug.warn"
     },
