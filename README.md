@@ -1,14 +1,21 @@
 # Zig Snippets
 
-This extension provides a comprehensive set of snippets for the [Zig programming language](https://ziglang.org).
+This extension provides a comprehensive and always updated set of snippets for the [Zig programming language](https://ziglang.org).
 
 -----------------------------------------------------------------------------------------------------------
+Snippets are separated into the following categories:
+
+* Main language
+* Async programming
+* Zig default functions
+* Std library utils
+* Program templates
+
 
 Main language:
 
 | prefix             | description                         |
 |:-------------------|:------------------------------------|
-| ```main/hello```   | Match construct                     |
 | ```var```          | variable declaration and definition |
 | ```const```        | Constant decl                       |
 | ```arr_init```     | array/sentinel init                 |
@@ -96,6 +103,13 @@ Std library utils:
 | ```assert```           | std.debug.assert        |
 | ```expect```           | std.testing.expect      |
 | ```arena/alloc/heap``` | std.heap.ArenaAllocator |
+
+Program templates:
+
+| prefix     | description         |
+|:-----------|:--------------------|
+| ```main``` | Main function       |
+| ```adt```  | Algebraic Data Type |
 
 
 ***Enjoy coding faster!*** :fire:

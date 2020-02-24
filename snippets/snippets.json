@@ -1,20 +1,4 @@
 {
-    "main": {
-        "prefix": [
-            "main",
-            "hello"
-        ],
-        "body": [
-            "const std = @import(\"std\");",
-            "",
-            "pub fn main() !void {",
-            "    const stdout = &std.io.getStdOut().outStream().stream;",
-            "    try stdout.print(\"Hello {}!\\n\", .{\"world\"});$0",
-            "}"
-        ],
-        "description": "main/hello world"
-    },
-
     "var": {
         "prefix": "var",
         "body": [
@@ -636,5 +620,40 @@
             "const ptr = try allocator.create(${1:type});$0"
         ],
         "description": "std.heap.ArenaAllocator"
+    },
+
+    "main": {
+        "prefix": [
+            "main",
+            "hello"
+        ],
+        "body": [
+            "const std = @import(\"std\");",
+            "",
+            "pub fn main() !void {",
+            "    const stdout = &std.io.getStdOut().outStream().stream;",
+            "    try stdout.print(\"Hello {}!\\n\", .{\"world\"});$0",
+            "}"
+        ],
+        "description": "main/hello world"
+    },
+    "adt": {
+        "prefix": "adt_template",
+        "body": [
+            "const std = @import(\"std\");\n",
+            "const ExprTag = enum {\n    Num,\n    Plus,\n};\n",
+            "const Expr = union(ExprTag) {\n    Num: i32,\n    Plus: struct{ e1: *Expr, e2: *Expr},\n};",
+            "fn eval(e: *const Expr) i32 {",
+            "    return switch (e.*) {",
+            "        .Num => |n| n,",
+            "        .Plus => |*plus_elem| eval(plus_elem.e1) + eval(plus_elem.e2),",
+            "        else => unreachable,\n    };\n}",
+            "pub fn main() !void {",
+            "    const stdout = &std.io.getStdOut().outStream().stream;",
+            "    const e = &Expr{ .Plus = .{ .e1 = &Expr{ .Num = 6}, .e2 = &Expr{ .Num = 5}}};",
+            "    try stdout.print(\"Hello {}!\\n\", .{\"world\"});$0",
+            "}"
+        ],
+        "description": "Algebraic Data Type"
     }
 }
