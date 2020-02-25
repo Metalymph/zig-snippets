@@ -109,7 +109,7 @@ Program templates:
 
 | prefix                 | description               |
 |:-----------------------|:--------------------------|
-| ```main```             | Main function             |
+| ```main_template```             | Main function             |
 | ```adt_template```     | Algebraic Data Type       |
 | ```builder_template``` | Default build.zig builder |
 
