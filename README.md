@@ -66,32 +66,33 @@ Async programming:
 
 Zig default functions:
 
-| prefix                  | description                                  |
-|:------------------------|:---------------------------------------------|
-| ```alignOf```           | align on specific type                       |
-| ```as```                | cast value                                   |
-| ```free```              | allocator free                               |
-| ```frame```             | switching frame                              |
-| ```imp```               | import dependency                            |
-| ```imp_std```           | import standard namespace                    |
-| ```typeOf```            | type of value                                |
-| ```typeName```          | type name of value                           |
-| ```panic```             | import dependency                            |
-| ```sizeOf```            | size of type                                 |
-| ```setC```              | set rarely call info to compiler             |
-| ```compileErr```        | compile error                                |
-| ```compileLog```        | compile log                                  |
-| ```cast```              | x to y cast function                         |
-| ```bitCast```           | value to bit cast                            |
-| ```bitOff```            | bit offset                                   |
-| ```byteOff```           | byte offset                                  |
-| ```byteToSlice```       | bytes to slice                               |
-| ```memberC```           | enum member count                            |
-| ```tagName```           | enum tag name                                |
-| ```tagType```           | enum tag's count type                        |
-| ```reflect.type_prop``` | type property (Property,ErrorSet,...)        |
-| ```atomicLoad```        | atomics: load ptr dereferenced value         |
-| ```atomicRmw```         | atomics: modify memory and return prev value |
+| prefix                               | description                                   |
+|:-------------------------------------|:----------------------------------------------|
+| ```overflow/{add|sub|mul|shl}With``` | Algebraic/Shift operation with overflow check |
+| ```alignOf```                        | align on specific type                        |
+| ```as```                             | cast value                                    |
+| ```free```                           | allocator free                                |
+| ```frame```                          | switching frame                               |
+| ```imp```                            | import dependency                             |
+| ```imp_std```                        | import standard namespace                     |
+| ```typeOf```                         | type of value                                 |
+| ```typeName```                       | type name of value                            |
+| ```panic```                          | import dependency                             |
+| ```sizeOf```                         | size of type                                  |
+| ```setC```                           | set rarely call info to compiler              |
+| ```compileErr```                     | compile error                                 |
+| ```compileLog```                     | compile log                                   |
+| ```cast```                           | x to y cast function                          |
+| ```bitCast```                        | value to bit cast                             |
+| ```bitOff```                         | bit offset                                    |
+| ```byteOff```                        | byte offset                                   |
+| ```byteToSlice```                    | bytes to slice                                |
+| ```memberC```                        | enum member count                             |
+| ```tagName```                        | enum tag name                                 |
+| ```tagType```                        | enum tag's count type                         |
+| ```reflect.type_prop```              | type property (Property,ErrorSet,...)         |
+| ```atomicLoad```                     | atomics: load ptr dereferenced value          |
+| ```atomicRmw```                      | atomics: modify memory and return prev value  |
 
 Std library utils:
 
@@ -106,10 +107,11 @@ Std library utils:
 
 Program templates:
 
-| prefix     | description         |
-|:-----------|:--------------------|
-| ```main``` | Main function       |
-| ```adt```  | Algebraic Data Type |
+| prefix                 | description               |
+|:-----------------------|:--------------------------|
+| ```main```             | Main function             |
+| ```adt_template```     | Algebraic Data Type       |
+| ```builder_template``` | Default build.zig builder |
 
 
 ***Enjoy coding faster!*** :fire:

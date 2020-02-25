@@ -494,6 +494,13 @@
         ],
         "description": "x to y cast function"
     },
+    "@opWithOverflow": {
+        "prefix": ["addWith","subWith","mulWith","overflow"],
+        "body": [
+            "@${1|add,sub,mul,shl|}WithOverflow(${2:type}, ${3:op_1}, ${4:op_2}, ${5:result_pointer})$0"
+        ],
+        "description": "Algebraic/Shift operation with overflow check"
+    },
     "@bitCast": {
         "prefix": "bitCast",
         "body": [
@@ -622,7 +629,7 @@
         "description": "std.heap.ArenaAllocator"
     },
 
-    "main": {
+    "main_template": {
         "prefix": [
             "main",
             "hello"
@@ -637,7 +644,20 @@
         ],
         "description": "main/hello world"
     },
-    "adt": {
+    "builder_template": {
+        "prefix": "builder_template",
+        "body": [
+            "const Builder = @import(\"std\").build.Builder;",
+            "",
+            "pub fn build(b: *Builder) void {",
+            "    const exe = b.addExecutable(${example}, ${2:example}.zig);",
+            "    exe.setBuildMode(b.standardReleaseOptions());",
+            "    b.default_step.dependeOn(&exe.step);$0",
+            "}"
+        ],
+        "description": "Default build.zig builder"
+    },
+    "adt_template": {
         "prefix": "adt_template",
         "body": [
             "const std = @import(\"std\");\n",
