@@ -27,8 +27,6 @@
         ],
         "description": "anonymous list"
     },
-
-
     "fn": {
         "prefix": "fn",
         "body": [
@@ -130,7 +128,6 @@
         ],
         "description": "tagged union decl"
     },
-
     "for_val": {
         "prefix": "for_v",
         "body": [
@@ -280,7 +277,6 @@
         ],
         "description": "switch expr"
     },
-
     "test": {
         "prefix": "test",
         "body": [
@@ -353,7 +349,6 @@
         ],
         "description": "asm block"
     },
-
     "async_call": {
         "prefix": "async",
         "body": [
@@ -384,7 +379,6 @@
         ],
         "description": "resume frame"
     },
-
     "free": {
         "prefix": "free",
         "body": [
@@ -392,7 +386,6 @@
         ],
         "description": "allocator free"
     },
-
     "@alignOf": {
         "prefix": "alignOf",
         "body": [
@@ -495,7 +488,12 @@
         "description": "x to y cast function"
     },
     "@opWithOverflow": {
-        "prefix": ["addWith","subWith","mulWith","overflow"],
+        "prefix": [
+            "addWith",
+            "subWith",
+            "mulWith",
+            "overflow"
+        ],
         "body": [
             "@${1|add,sub,mul,shl|}WithOverflow(${2:type}, ${3:op_1}, ${4:op_2}, ${5:result_pointer})$0"
         ],
@@ -578,7 +576,6 @@
         ],
         "description": "atomics: modify memory and return prev value"
     },
-
     "std.debug.warn": {
         "prefix": "warn",
         "body": [
@@ -594,11 +591,15 @@
         "description": "std.mem.eql"
     },
     "std.in/out": {
-        "prefix": ["stdin","stdout","stderr"],
+        "prefix": [
+            "stdin",
+            "stdout",
+            "stderr"
+        ],
         "body": [
             "std.io.${1|getStdOut().outStream().stream,getStdIn().inStream().stream,getStdErr()|}$0"
         ],
-        "description": "std.io stdout/stdin/stderr"
+        "description": "std.io in/out/err"
     },
     "std.debug.assert": {
         "prefix": "assert",
@@ -628,7 +629,6 @@
         ],
         "description": "std.heap.ArenaAllocator"
     },
-
     "main_template": {
         "prefix": [
             "main",

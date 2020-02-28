@@ -100,7 +100,7 @@ Std library utils:
 |:-----------------------|:------------------------|
 | ```warn```             | std.debug.warn          |
 | ```mem.eql```          | std.mem.eql             |
-| ```stdout/stderr```    | std.io stdout/stderr    |
+| ```std in/out/err```   | std.io in/out/err       |
 | ```assert```           | std.debug.assert        |
 | ```expect```           | std.testing.expect      |
 | ```arena/alloc/heap``` | std.heap.ArenaAllocator |
@@ -109,7 +109,7 @@ Program templates:
 
 | prefix                 | description               |
 |:-----------------------|:--------------------------|
-| ```main_template```             | Main function             |
+| ```main_template```    | Main function             |
 | ```adt_template```     | Algebraic Data Type       |
 | ```builder_template``` | Default build.zig builder |
 
