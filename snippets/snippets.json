@@ -594,11 +594,11 @@
         "description": "std.mem.eql"
     },
     "std.in/out": {
-        "prefix": ["stdout","stderr"],
+        "prefix": ["stdin","stdout","stderr"],
         "body": [
-            "std.io.${1|getStdOut().outStream().stream,getStdErr()|}$0"
+            "std.io.${1|getStdOut().outStream().stream,getStdIn().inStream().stream,getStdErr()|}$0"
         ],
-        "description": "std.io stdout/stderr"
+        "description": "std.io stdout/stdin/stderr"
     },
     "std.debug.assert": {
         "prefix": "assert",
