@@ -28,7 +28,8 @@ Main language:
 | ```inline```       | inline fn                           |
 | ```naked```        | nakedcc fn                          |
 | ```block```        | block expr                          |
-| ```stru```         | struct decl                         |
+| ```stru_val```     | struct val                          |
+| ```stru_decl```    | struct decl                         |
 | ```enum```         | enum decl                           |
 | ```union```        | tagged/untagged union decl          |
 | ```for_v```        | for value loop                      |
@@ -82,7 +83,7 @@ Zig default functions:
 | ```setC```                           | set rarely call info to compiler              |
 | ```compileErr```                     | compile error                                 |
 | ```compileLog```                     | compile log                                   |
-| ```cast```                           | x to y cast function                          |
+| ```cast```                           | fnCast function                               |
 | ```bitCast```                        | value to bit cast                             |
 | ```bitOff```                         | bit offset                                    |
 | ```byteOff```                        | byte offset                                   |
@@ -93,6 +94,7 @@ Zig default functions:
 | ```reflect.type_prop```              | type property (Property,ErrorSet,...)         |
 | ```atomicLoad```                     | atomics: load ptr dereferenced value          |
 | ```atomicRmw```                      | atomics: modify memory and return prev value  |
+| ```math.fn```                        | math functions                                |
 
 Std library utils:
 

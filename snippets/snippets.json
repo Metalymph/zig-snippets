@@ -98,12 +98,22 @@
         ],
         "description": "block expr"
     },
-    "struct": {
-        "prefix": "stru",
+    "struct_val": {
+        "prefix": "stru_val",
         "body": [
             "struct {",
-            "    ${1:field}: ${2:type},",
-            "    ${3:field}: ${4:type},$0",
+            "    .${1:field}: ${2:type},",
+            "    .${3:field}: ${4:type},$0",
+            "};"
+        ],
+        "description": "struct val"
+    },
+    "struct_decl": {
+        "prefix": "stru_decl",
+        "body": [
+            "const ${1:StructName} = struct {",
+            "    ${2:field}: ${3:type},",
+            "    ${4:field}: ${5:type},$0",
             "};"
         ],
         "description": "struct decl"
@@ -111,9 +121,9 @@
     "enum": {
         "prefix": "enum",
         "body": [
-            "enum(${1:type}) {",
-            "    ${2:variant} = ${3:count},",
-            "    ${4:variant} = ${5:count},$0",
+            "const ${1:EnumName} = enum(${2:type}) {",
+            "    ${3:variant} = ${4:count},",
+            "    ${5:variant} = ${6:count},$0",
             "};"
         ],
         "description": "enum decl"
@@ -121,9 +131,9 @@
     "union": {
         "prefix": "union",
         "body": [
-            "union(${1:enum}) {",
-            "    ${2:variant} : ${3:type},",
-            "    ${4:variant} : ${5:type},$0",
+            "const ${1:UnionName} = union(${2:enum}) {",
+            "    ${3:variant} : ${4:type},",
+            "    ${5:variant} : ${6:type},$0",
             "};"
         ],
         "description": "tagged union decl"
@@ -473,19 +483,19 @@
         ],
         "description": "compile log"
     },
+    "@math.fn": {
+        "prefix": "math",
+        "body": [
+            "@${1|sqrt,sin,cos,exp,exp2,log,log2,log10,fabs,floor,ceil,trunc,round|}(\"${2:value}\");$0"
+        ],
+        "description": "math functions"
+    },
     "fnCast": {
         "prefix": "cast",
         "body": [
             "@${1|alignCast,bitCast,errSetCast,floatCast,intCast,ptrCast,truncate|}(${2:value}, ${3:value})$0"
         ],
         "description": "fnCast function"
-    },
-    "x_to_y_cast": {
-        "prefix": "cast",
-        "body": [
-            "@${1||}(${2:value})$0"
-        ],
-        "description": "x to y cast function"
     },
     "@opWithOverflow": {
         "prefix": [
@@ -597,7 +607,7 @@
             "stderr"
         ],
         "body": [
-            "std.io.${1|getStdOut().outStream().stream,getStdIn().inStream().stream,getStdErr()|}$0"
+            "std.io.${1|getStdOut().outStream(),getStdIn().inStream(),getStdErr()|}$0"
         ],
         "description": "std.io in/out/err"
     },
@@ -638,7 +648,7 @@
             "const std = @import(\"std\");",
             "",
             "pub fn main() !void {",
-            "    const stdout = &std.io.getStdOut().outStream().stream;",
+            "    const stdout = &std.io.getStdOut().outStream();",
             "    try stdout.print(\"Hello {}!\\n\", .{\"world\"});$0",
             "}"
         ],
@@ -669,7 +679,7 @@
             "        .Plus => |*plus_elem| eval(plus_elem.e1) + eval(plus_elem.e2),",
             "        else => unreachable,\n    };\n}",
             "pub fn main() !void {",
-            "    const stdout = &std.io.getStdOut().outStream().stream;",
+            "    const stdout = &std.io.getStdOut().outStream();",
             "    const e = &Expr{ .Plus = .{ .e1 = &Expr{ .Num = 6}, .e2 = &Expr{ .Num = 5}}};",
             "    try stdout.print(\"Hello {}!\\n\", .{\"world\"});$0",
             "}"
