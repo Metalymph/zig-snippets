@@ -65,36 +65,6 @@ Async programming:
 | ```suspend``` | suspend block |
 | ```resume```  | resume frame  |
 
-Zig default functions:
-
-| prefix                               | description                                   |
-|:-------------------------------------|:----------------------------------------------|
-| ```overflow/{add|sub|mul|shl}With``` | Algebraic/Shift operation with overflow check |
-| ```alignOf```                        | align on specific type                        |
-| ```as```                             | cast value                                    |
-| ```frame```                          | switching frame                               |
-| ```imp```                            | import dependency                             |
-| ```imp_std```                        | import standard namespace                     |
-| ```typeOf```                         | type of value                                 |
-| ```typeName```                       | type name of value                            |
-| ```panic```                          | import dependency                             |
-| ```sizeOf```                         | size of type                                  |
-| ```setC```                           | set rarely call info to compiler              |
-| ```compileErr```                     | compile error                                 |
-| ```compileLog```                     | compile log                                   |
-| ```cast```                           | fnCast function                               |
-| ```bitCast```                        | value to bit cast                             |
-| ```bitOff```                         | bit offset                                    |
-| ```byteOff```                        | byte offset                                   |
-| ```byteToSlice```                    | bytes to slice                                |
-| ```memberC```                        | enum member count                             |
-| ```tagName```                        | enum tag name                                 |
-| ```tagType```                        | enum tag's count type                         |
-| ```reflect.type_prop```              | type property (Property,ErrorSet,...)         |
-| ```atomicLoad```                     | atomics: load ptr dereferenced value          |
-| ```atomicRmw```                      | atomics: modify memory and return prev value  |
-| ```math.fn```                        | math functions                                |
-
 Templates:
 
 | prefix                 | description               |
