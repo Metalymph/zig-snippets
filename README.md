@@ -7,10 +7,12 @@ Snippets are separated into the following categories:
 
 * Main language
 * Async programming
-* Zig default functions
-* Std library utils
-* Program templates
+* Templates
 
+### Notes on v.2.0.0 +
+
+Some snippets are been completly refactored to improve coding speed, others are been removed since ZLS can provides an ergonomic and always updated version of them.
+I hope you'll like it and ***Enjoy coding faster!*** :fire: with this.
 
 Main language:
 
@@ -73,6 +75,3 @@ Templates:
 | ```main_template```    | Main function             |
 | ```adt_template```     | Algebraic Data Type       |
 | ```builder_template``` | Default build.zig builder |
-
-
-***Enjoy coding faster!*** :fire:
