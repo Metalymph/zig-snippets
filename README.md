@@ -21,12 +21,12 @@ Main language:
 | ```arr_init```     | array/sentinel init                 |
 | ```list```         | anonymous list                      |
 | ```fn```           | fn decl                             |
-| ```fn_T```         | generic fn decl                     |
+| ```fn_gen```         | generic fn decl                     |
 | ```pub_fn```       | pub fn decl                         |
 | ```ext_fn```       | extern fn                           |
 | ```exp_fn```       | export fn                           |
-| ```inline```       | inline fn                           |
-| ```naked```        | nakedcc fn                          |
+| ```inl_fn```       | inline fn                           |
+| ```naked_fn```        | nakedcc fn                          |
 | ```block```        | block expr                          |
 | ```stru_val```     | struct val                          |
 | ```stru_decl```    | struct decl                         |
@@ -34,18 +34,18 @@ Main language:
 | ```union```        | tagged/untagged union decl          |
 | ```for_v```        | for value loop                      |
 | ```for_v_i```      | for value,index loop                |
-| ```for_inline```   | inline for loop                     |
-| ```for_l```        | labeled for loop                    |
-| ```for_e```        | for else loop expr                  |
+| ```inl_for```   | inline for loop                     |
+| ```label_for```        | labeled for loop                    |
+| ```for_else```        | for else loop expr                  |
 | ```while```        | while loop                          |
-| ```while_inline``` | inline while loop                   |
-| ```while_l```      | labeled while loop                  |
-| ```while_e```      | while else loop expr                |
+| ```inl_while``` | inline while loop                   |
+| ```label_while```      | labeled while loop                  |
+| ```while_else```      | while else loop expr                |
 | ```while?```       | while optional loop                 |
 | ```if```           | if expr                             |
-| ```if_e```         | if else expr                        |
+| ```if_else```         | if else expr                        |
 | ```if?```          | if optional                         |
-| ```if_e?```        | if else optional                    |
+| ```if_else?```        | if else optional                    |
 | ```orelse```       | orelse expr                         |
 | ```switch```       | switch expr                         |
 | ```defer```        | defer block                         |
@@ -72,7 +72,6 @@ Zig default functions:
 | ```overflow/{add|sub|mul|shl}With``` | Algebraic/Shift operation with overflow check |
 | ```alignOf```                        | align on specific type                        |
 | ```as```                             | cast value                                    |
-| ```free```                           | allocator free                                |
 | ```frame```                          | switching frame                               |
 | ```imp```                            | import dependency                             |
 | ```imp_std```                        | import standard namespace                     |
@@ -96,21 +95,11 @@ Zig default functions:
 | ```atomicRmw```                      | atomics: modify memory and return prev value  |
 | ```math.fn```                        | math functions                                |
 
-Std library utils:
-
-| prefix                 | description             |
-|:-----------------------|:------------------------|
-| ```warn```             | std.debug.warn          |
-| ```mem.eql```          | std.mem.eql             |
-| ```std in/out/err```   | std.io in/out/err       |
-| ```assert```           | std.debug.assert        |
-| ```expect```           | std.testing.expect      |
-| ```arena/alloc/heap``` | std.heap.ArenaAllocator |
-
-Program templates:
+Templates:
 
 | prefix                 | description               |
 |:-----------------------|:--------------------------|
+| ```arena/alloc/heap``` | std.heap.ArenaAllocator |
 | ```main_template```    | Main function             |
 | ```adt_template```     | Algebraic Data Type       |
 | ```builder_template``` | Default build.zig builder |
