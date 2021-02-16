@@ -408,8 +408,7 @@
             "const std = @import(\"std\");",
             "",
             "pub fn main() !void {",
-            "    const stdout = std.io.getStdOut().writer();",
-            "    try stdout.print(\"Hello {}!\\n\", .{\"world\"});$0",
+            "    try std.debug.print(\"Hello {s}!\\n\", .{\"world\"});$0",
             "}"
         ],
         "description": "main/hello world"
@@ -439,9 +438,8 @@
             "        .Plus => |*plus_elem| eval(plus_elem.e1) + eval(plus_elem.e2),",
             "        else => unreachable,\n    };\n}",
             "pub fn main() !void {",
-            "    const stdout = std.io.getStdOut().writer();",
             "    const e = &Expr{ .Plus = .{ .e1 = &Expr{ .Num = 6}, .e2 = &Expr{ .Num = 5}}};",
-            "    try stdout.print(\"Hello {}!\\n\", .{\"world\"});$0",
+            "    try std.debug.print(\"Hello {s}!\\n\", .{\"world\"});$0",
             "}"
         ],
         "description": "Algebraic Data Type"
