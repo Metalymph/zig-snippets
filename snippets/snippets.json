@@ -30,7 +30,7 @@
     "fn": {
         "prefix": "fn",
         "body": [
-            "fn ${1:name}() $0 {",
+            "fn ${1:name}($0) {",
             "    ",
             "}"
         ],
@@ -39,8 +39,8 @@
     "generic_fn": {
         "prefix": "fn_gen",
         "body": [
-            "fn ${1:name}(comptime T: type) type {",
-            "    $0",
+            "fn ${1:name}(comptime T: type, $0) type {",
+            "    ",
             "}"
         ],
         "description": "generic fn decl"
@@ -48,8 +48,8 @@
     "pub_fn": {
         "prefix": "pub_fn",
         "body": [
-            "pub fn ${1:name}() ${2:void} {",
-            "    $0",
+            "pub fn ${1:name}($0) {",
+            "    ",
             "}"
         ],
         "description": "pub fn decl"
@@ -64,8 +64,8 @@
     "exp_fn": {
         "prefix": "fn_exp",
         "body": [
-            "export fn ${1:name}() ${2:return_type} {",
-            "    $0",
+            "export fn ${1:name}($0) {",
+            "    ",
             "}"
         ],
         "description": "export fn"
@@ -73,8 +73,8 @@
     "inl_fn": {
         "prefix": "inl_fn",
         "body": [
-            "inline fn ${1:name}() ${2:return_type} {",
-            "    $0",
+            "inline fn ${1:name}($0) {",
+            "    ",
             "}"
         ],
         "description": "inline fn"
@@ -82,8 +82,8 @@
     "nakedcc_fn": {
         "prefix": "naked_fn",
         "body": [
-            "nakedcc fn _${1:name}() ${2:return_type} {",
-            "    $0",
+            "nakedcc fn _${1:name}($0) {",
+            "    ",
             "}"
         ],
         "description": "nakedcc fn"
@@ -102,7 +102,7 @@
         "prefix": "stru_val",
         "body": [
             "struct {",
-            "    .${1:field}: $0,",
+            "    $0",
             "};"
         ],
         "description": "struct val"
@@ -111,7 +111,7 @@
         "prefix": "stru_decl",
         "body": [
             "const ${1:StructName} = struct {",
-            "    ${2:field}: $0,",
+            "    $0",
             "};"
         ],
         "description": "struct decl"
@@ -120,7 +120,7 @@
         "prefix": "enum",
         "body": [
             "const ${1:EnumName} = enum(${2:type}) {",
-            "    ${3:variant} = $0,",
+            "    $0",
             "};"
         ],
         "description": "enum decl"
@@ -129,7 +129,7 @@
         "prefix": "union",
         "body": [
             "const ${1:UnionName} = union(${2:enum}) {",
-            "    ${3:variant} : $0,",
+            "    $0",
             "};"
         ],
         "description": "tagged union decl"
@@ -186,7 +186,7 @@
     "while": {
         "prefix": "while",
         "body": [
-            "while ($0) : (continue_expr) {",
+            "while ($0) : () {",
             "    ",
             "}"
         ],
@@ -195,7 +195,7 @@
     "while_else": {
         "prefix": "while_else",
         "body": [
-            "while ($0) : (continue_expr) {",
+            "while ($0) : () {",
             "    ",
             "    break true;",
             "} else false;"
@@ -216,8 +216,8 @@
     "while_label": {
         "prefix": "label_while",
         "body": [
-            "${1:label}: while ($0) : (continue_expr) {",
-            "    while (test) : (continue_expr) {",
+            "${1:label}: while ($0) : () {",
+            "    while () : () {",
             "        break :${1:label};",
             "    }",
             "}"
@@ -227,7 +227,7 @@
     "while_inline": {
         "prefix": "inl_while",
         "body": [
-            "inline while ($0) (continue_expr) {",
+            "inline while ($0) () {",
             "    ",
             "}"
         ],
@@ -248,7 +248,7 @@
             "if ($0) {",
             "    ",
             "} else {",
-            "    unreachable;",
+            "    ",
             "}"
         ],
         "description": "if else expr"
@@ -268,7 +268,7 @@
             "if ($0) |v| {",
             "    ",
             "} else |err| switch(err) {",
-            "    err_variant => ,",
+            "     => ,",
             "    else => ,",
             "}"
         ],
@@ -278,7 +278,7 @@
         "prefix": "switch",
         "body": [
             "switch ($0) {",
-            "    values/range => ,",
+            "     => ,",
             "    else => ,",
             "};"
         ],
@@ -289,7 +289,7 @@
         "body": [
             "test ${1:name} {",
             "    $0",
-            "    assert(condition)",
+            "    assert(true)",
             "}"
         ],
         "description": "test"
@@ -297,7 +297,7 @@
     "orelse": {
         "prefix": "orelse",
         "body": [
-            "orelse return ${1:unreachable}$0"
+            "orelse return $0"
         ],
         "description": "orelse expr"
     },
@@ -323,7 +323,7 @@
         "prefix": "error",
         "body": [
             "error {",
-            "    ${1:variant},$0",
+            "    $0",
             "};"
         ],
         "description": "error decl"
@@ -331,7 +331,7 @@
     "catch": {
         "prefix": "catch",
         "body": [
-            " catch |$0| {",
+            "catch |$0| {",
             "    ",
             "};"
         ],
@@ -355,20 +355,6 @@
         ],
         "description": "asm block"
     },
-    "async_call": {
-        "prefix": "async",
-        "body": [
-            "async $0;"
-        ],
-        "description": "async fn call"
-    },
-    "await": {
-        "prefix": "await",
-        "body": [
-            "await $0;"
-        ],
-        "description": "await frame"
-    },
     "suspend_block": {
         "prefix": "suspend",
         "body": [
@@ -377,13 +363,6 @@
             "}"
         ],
         "description": "suspend block"
-    },
-    "resume": {
-        "prefix": "resume",
-        "body": [
-            "resume $0;"
-        ],
-        "description": "resume frame"
     },
     "std.heap.ArenaAllocator": {
         "prefix": [
@@ -412,19 +391,6 @@
             "}"
         ],
         "description": "main/hello world"
-    },
-    "builder_template": {
-        "prefix": "builder_template",
-        "body": [
-            "const Builder = @import(\"std\").build.Builder;",
-            "",
-            "pub fn build(b: *Builder) void {",
-            "    const exe = b.addExecutable(${example}, ${2:example}.zig);",
-            "    exe.setBuildMode(b.standardReleaseOptions());",
-            "    b.default_step.dependeOn(&exe.step);$0",
-            "}"
-        ],
-        "description": "Default build.zig builder"
     },
     "adt_template": {
         "prefix": "adt_template",
