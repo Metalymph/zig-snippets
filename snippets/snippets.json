@@ -386,8 +386,8 @@
         "body": [
             "const std = @import(\"std\");",
             "",
-            "pub fn main() !void {",
-            "    try std.debug.print(\"Hello {s}!\\n\", .{\"world\"});$0",
+            "pub fn main() void {",
+            "    std.debug.print(\"Hello {s}!\\n\", .{\"world\"});$0",
             "}"
         ],
         "description": "main/hello world"
@@ -397,15 +397,15 @@
         "body": [
             "const std = @import(\"std\");\n",
             "const ExprTag = enum {\n    Num,\n    Plus,\n};\n",
-            "const Expr = union(ExprTag) {\n    Num: i32,\n    Plus: struct{ e1: *Expr, e2: *Expr},\n};",
+            "const Expr = union(ExprTag) {\n    Num: i32,\n    Plus: struct{ e1: *const Expr, e2: *const Expr},\n};",
             "fn eval(e: *const Expr) i32 {",
             "    return switch (e.*) {",
             "        .Num => |n| n,",
             "        .Plus => |*plus_elem| eval(plus_elem.e1) + eval(plus_elem.e2),",
             "        else => unreachable,\n    };\n}",
-            "pub fn main() !void {",
+            "pub fn main() void {",
             "    const e = &Expr{ .Plus = .{ .e1 = &Expr{ .Num = 6}, .e2 = &Expr{ .Num = 5}}};",
-            "    try std.debug.print(\"Hello {s}!\\n\", .{\"world\"});$0",
+            "    std.debug.print(\"{}\\n\", .{e});$0",
             "}"
         ],
         "description": "Algebraic Data Type"
