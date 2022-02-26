@@ -1,6 +1,6 @@
 # Zig Snippets
 
-This extension provides a comprehensive and always updated set of snippets for the [Zig programming language](https://ziglang.org).
+This extension provides a comprehensive set of snippets for the [Zig programming language](https://ziglang.org).
 
 -----------------------------------------------------------------------------------------------------------
 Snippets are separated into the following categories:
