@@ -6,10 +6,9 @@ This extension provides a comprehensive and always updated set of snippets for t
 Snippets are separated into the following categories:
 
 * Main language
-* Async programming
 * Templates
 
-### Notes on v.2.0.0 +
+### Notes on v 2.0.0 +
 
 Some snippets are been completly refactored to improve coding speed, others are been removed since ZLS provides an ergonomic and always updated version of them.
 I hope you'll like it and ***Enjoy coding faster!*** with this.
