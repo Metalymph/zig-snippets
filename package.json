@@ -10,7 +10,7 @@
         "url": "https://github.com/LorenzoPirro/zig-snippets.git"
     },
     "engines": {
-        "vscode": "^1.41.0"
+        "vscode": "^1.41.1"
     },
     "categories": [
         "Snippets"
