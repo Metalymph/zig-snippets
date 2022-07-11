@@ -2,7 +2,7 @@
     "name": "zig-snippets",
     "displayName": "Zig Snippets",
     "description": "A comprehensive set of snippets for the Zig programming language",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "publisher": "lorenzopirro",
     "icon": "ziglogo.png",
     "repository": {
