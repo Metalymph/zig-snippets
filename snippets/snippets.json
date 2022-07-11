@@ -364,20 +364,6 @@
         ],
         "description": "suspend block"
     },
-    "std.heap.ArenaAllocator": {
-        "prefix": [
-            "arena",
-            "alloc",
-            "heap"
-        ],
-        "body": [
-            "var ${1:arena_all_name} = std.heap.ArenaAllocator.init(std.heap.page_allocator);",
-            "defer ${1:arena_all_name}.deinit();",
-            "const allocator = &${1:arena_all_name}.allocator;",
-            "const ptr = try allocator.create(${1:type});$0"
-        ],
-        "description": "std.heap.ArenaAllocator"
-    },
     "main_template": {
         "prefix": [
             "main",
@@ -387,7 +373,8 @@
             "const std = @import(\"std\");",
             "",
             "pub fn main() void {",
-            "    std.debug.print(\"Hello {s}!\\n\", .{\"world\"});$0",
+            "    const stdout = std.io.getStdOut().writer();",
+            "    try stdout.print(\"Hello, {s}!\n\", .{\"world\"});$0",
             "}"
         ],
         "description": "main/hello world"

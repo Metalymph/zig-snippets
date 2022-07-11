@@ -62,6 +62,5 @@ Templates:
 
 | prefix                 | description               |
 |:-----------------------|:--------------------------|
-| ```arena/alloc/heap``` | std.heap.ArenaAllocator   |
 | ```main_template```    | Main function             |
 | ```adt_template```     | Algebraic Data Type       |
