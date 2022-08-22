@@ -364,6 +364,16 @@
         ],
         "description": "suspend block"
     },
+    "import-std": {
+        "prefix": [
+            "imps",
+            "impstd"
+        ],
+        "body": [
+            "const std = @import(\"std\");"
+        ],
+        "description": "import std"
+    },
     "main_template": {
         "prefix": [
             "main",

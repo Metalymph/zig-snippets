@@ -62,5 +62,6 @@ Templates:
 
 | prefix                 | description               |
 |:-----------------------|:--------------------------|
+| ```import std```       | Import std                |
 | ```main_template```    | Main function             |
 | ```adt_template```     | Algebraic Data Type       |
