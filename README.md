@@ -2,6 +2,8 @@
 
 This extension provides a comprehensive set of snippets for the [Zig programming language](https://ziglang.org).
 
+⚠️THIS EXTENSION IS NO LONGER MAINTAINED.
+
 -----------------------------------------------------------------------------------------------------------
 Snippets are separated into the following categories:
 
